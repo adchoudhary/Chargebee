@@ -28,9 +28,9 @@ namespace ChargebeeWebhookConsumer
             return "value";
         }
 
-        // POST api/<controller>
+        // POST api/<controller> [FromBody]string data
         [HttpPost]
-        public void Post([FromBody]string data)
+        public void Post(HttpRequest Request)
         {
             Event events = new Event(Request.InputStream);
             EventTypeEnum eventType = (EventTypeEnum)events.EventType;  // to get the event type
