@@ -20,11 +20,17 @@ namespace ChargebeeMVCapp.Controllers
         [HttpPost]
         public void Chargebee(HttpRequestBase Request)
         {
+            Console.WriteLine(Request.HttpMethod);
+            Console.WriteLine(Request.RawUrl);
+
             Event events = new Event(Request.InputStream);
             EventTypeEnum eventType = (EventTypeEnum)events.EventType;  // to get the event type
             Event.EventContent content = events.Content;
             String subscriptionId = content.Subscription.Id;  //get subscription ID
             String customerEmail = content.Customer.Email;     // get customer email ID 
+
+            Console.WriteLine(subscriptionId);
+            Console.WriteLine(customerEmail);
         }
 
     }
