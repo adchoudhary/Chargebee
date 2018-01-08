@@ -25,6 +25,7 @@ namespace ChargebeeMVCapp.Controllers
         }
 
         // POST api/values
+        [HttpPost]
         public void Post(HttpRequestBase Request)
         {
             Console.WriteLine(Request.HttpMethod);
